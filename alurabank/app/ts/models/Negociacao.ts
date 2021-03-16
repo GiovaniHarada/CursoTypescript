@@ -1,29 +1,24 @@
-class Negociacao {
+import { Imprimivel } from "./Imprimivel";
 
-    private _data: Date;
-    private _quantidade: number;
-    private _valor: number;
+export class Negociacao implements Imprimivel {
+
+    readonly data: Date;
+    readonly quantidade: number;
+    readonly valor: number;
 
     constructor(data: Date, quantidade: number, valor: number) {
 
-        this._data = data;
-        this._quantidade = quantidade;
-        this._valor = valor;
+        this.data = data;
+        this.quantidade = quantidade;
+        this.valor = valor;
     }
 
-    get data() {
-        return this._data;
-    }
-
-    get quantidade(){
-        return this._quantidade;
-    }
-
-    get valor(){
-        return this._valor;
-    }
 
     get volume(){
-        return this._quantidade * this._valor;
+        return this.quantidade * this.valor;
+    }
+
+    paraTexto() {
+        console.log(`Negociação print: ${JSON.stringify(this)}`)
     }
 }
